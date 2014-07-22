@@ -1,6 +1,6 @@
 DEFAULT_ROOT_URL = 'http://localhost:3003'
 
-# Simple jQuery.ajax() shim that returns a promise for a xhr object
+# Simple jQuery.ajax() shim. Uses jQuery if available
 ajax = window.jQuery?.ajax or (options, cb) ->
 
   # Use the browser XMLHttpRequest if it exists. If not, then this is NodeJS

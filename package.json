@@ -1,0 +1,26 @@
+{
+  "name": "openstax-exchange",
+  "version": "0.0.1",
+  "description": "Javascript client for the Openstax Exchange service",
+  "main": "exchange.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-coffeelint": "0.0.10",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "scripts": {
+    "test": "grunt dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openstax/exchange-js.git"
+  },
+  "author": "philschatz",
+  "bugs": {
+    "url": "https://github.com/openstax/exchange-js/issues"
+  },
+  "homepage": "https://github.com/openstax/exchange-js"
+}
