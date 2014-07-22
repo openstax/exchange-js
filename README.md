@@ -2,35 +2,59 @@
 
 ## Client Examples
 
-    exch = new Exchange(window.identToken)
-    page = exch.page('http://yahoo.com', 1)
-    page.heartbeat()
-    page.cursor('a[href="http://cnx.org"]', '', 0, 0)
-    page.mouseMove('a[href="http://cnx.org"]', 0, 0)
-    page.mouseClick('a[href="http://cnx.org"]', 0, 0)
-    page.input('input.answer', 'category', 'inputType', '42')
+```coffee
+exch = new Exchange(window.identToken)
+page = exch.page('http://yahoo.com', 1)
+page.heartbeat()
+page.cursor('a[href="http://cnx.org"]', '', 0, 0)
+page.mouseMove('a[href="http://cnx.org"]', 0, 0)
+page.mouseClick('a[href="http://cnx.org"]', 0, 0)
+page.input('input.answer', 'category', 'inputType', '42')
+```
 
-## Example with a callback
+## Using NodeJS-style callbacks
 
-    page.heartbeat (err, val) ->
-      return console.error(err) if err
-      console.log(val)
+```coffee
+page.heartbeat (err, val) ->
+  return console.error(err) if err
+  console.log(val)
+```
 
-## Example using promises
+## Using promises
 
-**Note:** jQuery **must** be loaded before this file is.
+**Note:** To use Promises jQuery **must** be loaded before this file is.
 
-    page.heartbeat().then -> console.log('Done')
+```coffee
+page.heartbeat()
+.then -> console.log('Done')
+```
 
 ## Create an Application token
 
-    Exchange.Server.oAuth('u', 's')
+```coffee
+Exchange.Server.oAuth('u', 's')
+.then (token) -> ...
+```
 
 ## Create a new identifier
 
-    server = new Exchange.Server(window.oAuthToken)
-    server.createIdent()
+```coffee
+server = new Exchange.Server(window.oAuthToken)
+server.createIdent()
+.then (ident) -> ...
+```
 
 ## Get application events
 
-    server.events('yahoo')
+Using NodeJS-style callbacks:
+
+```coffee
+server.events 'search string', {}, (err, results) ->
+```
+
+Using Promises (if jQuery is loaded):
+
+```coffee
+server.events('search string')
+.then (results) -> console.log(results)
+```
