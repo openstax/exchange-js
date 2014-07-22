@@ -12,7 +12,7 @@
     "grunt-contrib-watch": "~0.6.1"
   },
   "scripts": {
-    "test": "grunt dist"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
