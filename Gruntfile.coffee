@@ -1,17 +1,10 @@
 module.exports = (grunt) ->
 
-  fs = require('fs')
   pkg = require('./package.json')
-
-  # Enable Sepia fixtures
-  process.env['VCR_MODE'] ?= 'playback'
 
   # Project configuration.
   grunt.initConfig
     pkg: pkg
-
-    # Lint
-    # ----
 
     # CoffeeLint
     coffeelint:
@@ -37,11 +30,6 @@ module.exports = (grunt) ->
 
       source: ['src/*.coffee']
       grunt: 'Gruntfile.coffee'
-
-
-    # Dist
-    # ----
-
 
     # Clean
     clean:
@@ -104,7 +92,6 @@ module.exports = (grunt) ->
     'dist'
     'bump:minor'
   ]
-
   grunt.registerTask 'release-major', [
     'dist'
     'bump'
@@ -115,7 +102,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'test', [
     'dist'
   ]
-
 
   # Default
   # -----
